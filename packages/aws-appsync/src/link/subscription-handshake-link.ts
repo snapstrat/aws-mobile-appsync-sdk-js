@@ -59,6 +59,7 @@ export class SubscriptionHandshakeLink extends ApolloLink {
     request(operation: Operation) {
         const {
             [this.subsInfoContextKey]: subsInfo,
+            // @ts-ignore
             controlMessages: { [CONTROL_EVENTS_KEY]: controlEvents } = {}
         } = operation.getContext();
         const {

@@ -340,6 +340,7 @@ const effect = async <TCache extends NormalizedCacheObject>(
 
                 if (typeof update === 'function') {
                     tryFunctionOrLogError(() => {
+                        // @ts-ignore
                         update(cacheProxy, result);
                     });
                 }
@@ -389,6 +390,7 @@ const effect = async <TCache extends NormalizedCacheObject>(
 
             if (typeof update === 'function') {
                 tryFunctionOrLogError(() => {
+                    // @ts-ignore
                     update(cacheProxy, result);
                 });
             }
@@ -733,6 +735,7 @@ const updateBaseWithDelta = <T = { [key: string]: any }, TVariables = OperationV
 
         const operationName = getOperationFieldName(query);
 
+        // @ts-ignore
         const { [operationName]: baseResult } = cache.readQuery({ query, variables });
 
         if (!Array.isArray(baseResult)) {
